@@ -21,4 +21,14 @@ class PlayerTest {
         assertEquals(9, frames.size)
         assertTrue(frames.all { it is NormalFrame })
     }
+
+    @Test
+    fun testPlayerCanRoll() {
+        val player = Player("Victor")
+
+        player.roll(5)
+
+        val firstFrame = player.getFrames()[0]
+        assertEquals(5, firstFrame.sum())
+    }
 }

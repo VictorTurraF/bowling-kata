@@ -12,4 +12,8 @@ class Player (
     fun getName(): String {
         return this.name
     }
+
+    fun roll(pins: Int) {
+
+    }
 }
