@@ -1,5 +1,7 @@
 package org.example.application.entity
 
+import org.example.application.entity.exceptions.RollingIsExceedingTotalPinsException
+
 class NormalFrame : Frame {
     private var firstThrow: Int? = null
     private var secondThrow: Int? = null
@@ -21,6 +23,9 @@ class NormalFrame : Frame {
 
 
     fun roll(pins: Int) {
+        if (pins > 10)
+            throw RollingIsExceedingTotalPinsException()
+
         if (this.firstThrow === null)
             this.firstThrow = pins
         else

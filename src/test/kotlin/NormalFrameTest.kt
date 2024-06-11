@@ -36,7 +36,6 @@ class NormalFrameTest {
         val frame = NormalFrame()
 
         val exception = assertFailsWith<RollingIsExceedingTotalPinsException> {
-
             frame.roll(11)
         }
 
