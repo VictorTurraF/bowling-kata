@@ -84,4 +84,15 @@ class NormalFrameTest {
         assertTrue(frame.isStrike())
         assertFalse(frame.isSpare())
     }
+
+    @Test
+    fun testIsSpare() {
+        val frame = NormalFrame()
+        frame.roll(5)
+        frame.roll(5)
+
+        assertTrue(frame.isSpare())
+        assertFalse(frame.isStrike())
+    }
+
 }
