@@ -14,11 +14,11 @@ class NormalFrame : Frame {
     }
 
     override fun isSpare(): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
     override fun isStrike(): Boolean {
-        TODO("Not yet implemented")
+        return this.firstThrow == 10
     }
 
 
