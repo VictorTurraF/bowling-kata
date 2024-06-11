@@ -1,8 +1,10 @@
 package org.example.application.entity
 
-class Player (name: String) {
+class Player (
+    private var name: String
+) {
 
     fun getName(): String {
-        return ""
+        return this.name
     }
 }
