@@ -18,4 +18,14 @@ class NormalFrameTest {
 
         assertEquals(frame.sum(), 4)
     }
+
+    @Test
+    fun testNormalFrameShouldThrowTwice() {
+        val frame = NormalFrame()
+
+        frame.roll(3)
+        frame.roll(4)
+
+        assertEquals(frame.sum(), 7)
+    }
 }
