@@ -3,6 +3,7 @@ import org.example.application.entity.exceptions.RollingIsExceedingTotalPinsExce
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
+import kotlin.test.assertFalse
 import kotlin.test.assertFailsWith
 
 class NormalFrameTest {
@@ -64,5 +65,23 @@ class NormalFrameTest {
         }
 
         assertEquals("The knocked down pins amount should not be greater then 10 pins", exception.message)
+    }
+
+    @Test
+    fun shouldAllowKnockDownAllPins() {
+        val frame = NormalFrame()
+        frame.roll(3)
+        frame.roll(7)
+
+        assertEquals(frame.sum(), 10)
+    }
+
+    @Test
+    fun testIsStrike() {
+        val frame = NormalFrame()
+        frame.roll(10)
+
+        assertTrue(frame.isStrike())
+        assertFalse(frame.isSpare())
     }
 }
