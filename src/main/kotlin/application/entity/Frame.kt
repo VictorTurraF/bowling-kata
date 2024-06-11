@@ -7,4 +7,6 @@ interface Frame {
     fun isSpare(): Boolean
 
     fun isStrike(): Boolean
+
+    fun roll(pins: Int)
 }

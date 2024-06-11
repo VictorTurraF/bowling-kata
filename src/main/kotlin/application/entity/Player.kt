@@ -14,6 +14,6 @@ class Player (
     }
 
     fun roll(pins: Int) {
-
+        this.frames[0].roll(pins)
     }
 }

@@ -24,7 +24,7 @@ class NormalFrame : Frame {
         return this.firstThrow == 10
     }
 
-    fun roll(pins: Int) {
+    override fun roll(pins: Int) {
         if (pins > 10)
             throw RollingIsExceedingTotalPinsException()
 
