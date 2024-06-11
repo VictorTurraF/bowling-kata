@@ -1,11 +1,12 @@
 package org.example.application.entity
 
 class Player (
-    private var name: String
+    private var name: String,
+    private var frames: List<Frame> = List(9) { NormalFrame() }
 ) {
 
     fun getFrames(): List<Frame> {
-        return listOf()
+        return this.frames
     }
 
     fun getName(): String {
