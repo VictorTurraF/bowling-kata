@@ -46,6 +46,7 @@ class NormalFrameTest {
     @Test
     fun shouldNotTotalTenPinsAtTheSecondThrow() {
         val frame = NormalFrame()
+
         frame.roll(5)
 
         val exception = assertFailsWith<RollingIsExceedingTotalPinsException> {
@@ -58,6 +59,7 @@ class NormalFrameTest {
     @Test
     fun shouldNotTotalTenPinsAtAll() {
         val frame = NormalFrame()
+
         frame.roll(2)
 
         val exception = assertFailsWith<RollingIsExceedingTotalPinsException> {
@@ -70,6 +72,7 @@ class NormalFrameTest {
     @Test
     fun shouldAllowKnockDownAllPins() {
         val frame = NormalFrame()
+
         frame.roll(3)
         frame.roll(7)
 
@@ -79,6 +82,7 @@ class NormalFrameTest {
     @Test
     fun testIsStrike() {
         val frame = NormalFrame()
+
         frame.roll(10)
 
         assertTrue(frame.isStrike())
@@ -88,6 +92,7 @@ class NormalFrameTest {
     @Test
     fun testIsSpare() {
         val frame = NormalFrame()
+
         frame.roll(5)
         frame.roll(5)
 
@@ -95,4 +100,14 @@ class NormalFrameTest {
         assertFalse(frame.isStrike())
     }
 
+    @Test
+    fun testIsNotSpareOrStrike() {
+        val frame = NormalFrame()
+
+        frame.roll(3)
+        frame.roll(6)
+
+        assertFalse(frame.isSpare())
+        assertFalse(frame.isStrike())
+    }
 }

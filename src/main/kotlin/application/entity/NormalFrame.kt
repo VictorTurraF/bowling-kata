@@ -18,13 +18,11 @@ class NormalFrame : Frame {
         val second = this.secondThrow ?: return false
 
         return first + second == 10 && first != 10
-
     }
 
     override fun isStrike(): Boolean {
         return this.firstThrow == 10
     }
-
 
     fun roll(pins: Int) {
         if (pins > 10)
