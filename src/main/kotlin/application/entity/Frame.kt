@@ -9,4 +9,6 @@ interface Frame {
     fun isStrike(): Boolean
 
     fun roll(pins: Int)
+
+    fun hasEnded(): Boolean
 }

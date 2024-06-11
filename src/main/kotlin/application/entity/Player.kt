@@ -4,6 +4,7 @@ class Player (
     private var name: String,
     private var frames: List<Frame> = List(9) { NormalFrame() }
 ) {
+    private var currentFrameIndex: Int = 0
 
     fun getFrames(): List<Frame> {
         return this.frames
@@ -14,6 +15,14 @@ class Player (
     }
 
     fun roll(pins: Int) {
-        this.frames[0].roll(pins)
+        this.currentFrame().roll(pins)
+
+        if (this.currentFrame().hasEnded()) {
+            this.currentFrameIndex ++;
+        }
+    }
+
+    private fun currentFrame(): Frame {
+        return this.frames[this.currentFrameIndex]
     }
 }

@@ -37,4 +37,8 @@ class NormalFrame : Frame {
             this.secondThrow = pins
         }
     }
+
+    override fun hasEnded(): Boolean {
+        return this.isStrike() || this.secondThrow != null
+    }
 }
