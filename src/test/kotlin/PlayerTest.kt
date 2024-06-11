@@ -31,4 +31,32 @@ class PlayerTest {
         val firstFrame = player.getFrames()[0]
         assertEquals(5, firstFrame.sum())
     }
+
+    @Test
+    fun testPlayerRollShouldUpdateCurrentThrowing() {
+        val player = Player("Victor")
+
+        player.roll(5)
+        player.roll(3)
+
+        val firstFrame = player.getFrames()[0]
+        assertEquals(8, firstFrame.sum())
+    }
+
+    @Test
+    fun testPlayerRollShouldUpdateCurrentFrame() {
+        val player = Player("Victor")
+
+        player.roll(5)
+        player.roll(3)
+
+        player.roll(4)
+        player.roll(3)
+
+        val firstFrame = player.getFrames()[0]
+        assertEquals(8, firstFrame.sum())
+
+        val secondFrame = player.getFrames()[1]
+        assertEquals(7, secondFrame.sum())
+    }
 }
