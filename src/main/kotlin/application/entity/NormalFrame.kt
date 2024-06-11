@@ -2,7 +2,7 @@ package org.example.application.entity
 
 class NormalFrame : Frame {
     private var firstThrow: Int? = null
-    private val secondThrow: Int? = null
+    private var secondThrow: Int? = null
 
     override fun sum(): Int {
         val first = this.firstThrow ?: 0
@@ -21,6 +21,9 @@ class NormalFrame : Frame {
 
 
     fun roll(pins: Int) {
-        this.firstThrow = pins
+        if (this.firstThrow === null)
+            this.firstThrow = pins
+        else
+            this.secondThrow = pins
     }
 }
