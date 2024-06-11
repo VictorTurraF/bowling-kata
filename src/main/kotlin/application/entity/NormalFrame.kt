@@ -14,7 +14,11 @@ class NormalFrame : Frame {
     }
 
     override fun isSpare(): Boolean {
-        return false
+        val first = this.firstThrow ?: return false
+        val second = this.secondThrow ?: return false
+
+        return first + second == 10 && first != 10
+
     }
 
     override fun isStrike(): Boolean {
