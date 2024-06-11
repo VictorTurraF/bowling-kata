@@ -28,7 +28,11 @@ class NormalFrame : Frame {
 
         if (this.firstThrow === null)
             this.firstThrow = pins
-        else
+        else {
+            if ((this.firstThrow ?: 0) + pins > 10)
+                throw RollingIsExceedingTotalPinsException()
+
             this.secondThrow = pins
+        }
     }
 }
