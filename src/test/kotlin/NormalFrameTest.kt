@@ -53,4 +53,16 @@ class NormalFrameTest {
 
         assertEquals("The knocked down pins amount should not be greater then 10 pins", exception.message)
     }
+
+    @Test
+    fun shouldNotTotalTenPinsAtAll() {
+        val frame = NormalFrame()
+        frame.roll(2)
+
+        val exception = assertFailsWith<RollingIsExceedingTotalPinsException> {
+            frame.roll(9)
+        }
+
+        assertEquals("The knocked down pins amount should not be greater then 10 pins", exception.message)
+    }
 }
