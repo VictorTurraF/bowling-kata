@@ -12,4 +12,8 @@ class Game(
     fun getCurrentPlayer(): Player {
         return this.players[this.currentPlayerIndex]
     }
+
+    fun roll(pins: Int) {
+
+    }
 }

@@ -27,4 +27,18 @@ class GameTest {
         val currentPlayer = game.getCurrentPlayer()
         assertEquals("Victor", currentPlayer.getName())
     }
+
+    @Test
+    fun gameShouldRollPinsOfTheFirstPlayer() {
+        val players = listOf(Player("Victor"), Player("Alice"))
+        val game = Game(players)
+
+        game.roll(5)
+        // Check if the first player's frame has the roll
+        assertEquals(5, players[0].getFrames()[0].sum())
+
+        game.roll(4)
+        // Check if the second player's frame has the roll
+        assertEquals(8, players[0].getFrames()[0].sum())
+    }
 }
