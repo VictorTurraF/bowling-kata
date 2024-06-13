@@ -18,4 +18,13 @@ class GameTest {
         assertEquals("Victor", gamePlayers[0].getName())
         assertEquals("Alice", gamePlayers[1].getName())
     }
+
+    @Test
+    fun gameShouldHaveACurrentPlayer() {
+        val players = listOf(Player("Victor"), Player("Alice"))
+        val game = Game(players)
+
+        val currentPlayer = game.getCurrentPlayer()
+        assertEquals("Victor", currentPlayer.getName())
+    }
 }

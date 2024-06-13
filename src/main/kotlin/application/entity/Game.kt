@@ -6,4 +6,8 @@ class Game(
     fun getPlayers(): List<Player> {
         return this.players
     }
+
+    fun getCurrentPlayer(): Player {
+        return Player("Teste")
+    }
 }
