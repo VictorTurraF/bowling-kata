@@ -14,6 +14,6 @@ class Game(
     }
 
     fun roll(pins: Int) {
-
+        this.getCurrentPlayer().roll(pins)
     }
 }
