@@ -4,6 +4,6 @@ class Game(
     private val players: List<Player> = listOf()
 ) {
     fun getPlayers(): List<Player> {
-        return listOf()
+        return this.players
     }
 }
