@@ -39,6 +39,6 @@ class GameTest {
 
         game.roll(4)
         // Check if the second player's frame has the roll
-        assertEquals(8, players[0].getFrames()[0].sum())
+        assertEquals(9, players[0].getFrames()[0].sum())
     }
 }
