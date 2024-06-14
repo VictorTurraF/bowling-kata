@@ -14,19 +14,17 @@ class Player (
         return this.name
     }
 
-    fun roll(pins: Int) {
+    fun roll(pins: Int, onFrameEnd: () -> Unit = {}) {
         this.currentFrame().roll(pins)
 
         if (this.currentFrame().hasEnded()) {
-            this.currentFrameIndex ++;
+            this.currentFrameIndex ++
+
+            onFrameEnd()
         }
     }
 
     private fun currentFrame(): Frame {
         return this.frames[this.currentFrameIndex]
-    }
-
-    fun lastFrame(): Frame? {
-        return if (this.currentFrameIndex <= 0) null else this.frames[this.currentFrameIndex - 1]
     }
 }
