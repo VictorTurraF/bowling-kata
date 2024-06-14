@@ -61,4 +61,41 @@ class GameTest {
         game.roll(3)
         assertEquals(6, players[1].getFrames()[0].sum())
     }
+
+    @Test
+    fun gameShouldTurnToFirstPlayerAfterTheLastPlayerHasDone() {
+        val players = listOf(Player("Victor"), Player("Alice"))
+        val game = Game(players)
+
+        // Player 1 rolls
+        game.roll(5)
+        assertEquals(5, players[0].getFrames()[0].sum())
+
+        game.roll(4)
+        assertEquals(9, players[0].getFrames()[0].sum())
+
+
+        // Player 2 rolls
+        game.roll(3)
+        assertEquals(3, players[1].getFrames()[0].sum())
+
+        game.roll(3)
+        assertEquals(6, players[1].getFrames()[0].sum())
+
+
+        // Player 1 roll for second frame
+        game.roll(4)
+        assertEquals(4, players[0].getFrames()[1].sum())
+
+        game.roll(3)
+        assertEquals(7, players[0].getFrames()[1].sum())
+
+
+        // Player 2 rolls for second frame
+        game.roll(1)
+        assertEquals(1, players[1].getFrames()[1].sum())
+
+        game.roll(3)
+        assertEquals(4, players[1].getFrames()[1].sum())
+    }
 }
