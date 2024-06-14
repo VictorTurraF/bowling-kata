@@ -15,5 +15,9 @@ class Game(
 
     fun roll(pins: Int) {
         this.getCurrentPlayer().roll(pins)
+
+        if (this.getCurrentPlayer().lastFrame()?.hasEnded() == true) {
+            this.currentPlayerIndex ++
+        }
     }
 }

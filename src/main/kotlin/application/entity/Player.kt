@@ -25,4 +25,8 @@ class Player (
     private fun currentFrame(): Frame {
         return this.frames[this.currentFrameIndex]
     }
+
+    fun lastFrame(): Frame? {
+        return if (this.currentFrameIndex <= 0) null else this.frames[this.currentFrameIndex - 1]
+    }
 }
