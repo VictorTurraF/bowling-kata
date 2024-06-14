@@ -47,22 +47,18 @@ class GameTest {
         val players = listOf(Player("Victor"), Player("Alice"))
         val game = Game(players)
 
+        // Player 1 rolls
         game.roll(5)
-        // Check if the first player's frame has the roll
-        assertEquals(players[0].getFrames()[0].sum(), 5)
+        assertEquals(5, players[0].getFrames()[0].sum())
 
         game.roll(4)
-        // Check if the first player's frame sum is correct
-        assertEquals(players[0].getFrames()[0].sum(), 9)
+        assertEquals(9, players[0].getFrames()[0].sum())
+
+        // Player 2 rolls
+        game.roll(3)
+        assertEquals(3, players[1].getFrames()[0].sum())
 
         game.roll(3)
-        // Check if the second player's frame has the roll
-        assertEquals(players[1].getFrames()[0].sum(), 3)
-
-        game.roll(3)
-        // Check if the second player's frame sum is correct
-        assertEquals(players[1].getFrames()[0].sum(), 6)
+        assertEquals(6, players[1].getFrames()[0].sum())
     }
-
-    // gameShouldTurnToFirstPlayerAfterTheLastPlayerHasDone()
 }
