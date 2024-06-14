@@ -59,4 +59,22 @@ class PlayerTest {
         val secondFrame = player.getFrames()[1]
         assertEquals(7, secondFrame.sum())
     }
+
+    @Test
+    fun testPlayerScoresShouldAccumulateFramesSums() {
+        val player = Player("Victor")
+
+        player.roll(2)
+        assertEquals(2, player.getScores()[0])
+
+        player.roll(3)
+        assertEquals(5, player.getScores()[0])
+
+        player.roll(3)
+        assertEquals(8, player.getScores()[1])
+
+        player.roll(4)
+        assertEquals(5, player.getScores()[0])
+        assertEquals(12, player.getScores()[1])
+    }
 }
