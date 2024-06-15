@@ -11,4 +11,6 @@ interface Frame {
     fun roll(pins: Int)
 
     fun hasEnded(): Boolean
+
+    fun getFirstThrow(): Int
 }

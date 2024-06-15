@@ -6,6 +6,10 @@ class NormalFrame : Frame {
     private var firstThrow: Int? = null
     private var secondThrow: Int? = null
 
+    override fun getFirstThrow(): Int {
+        return this.firstThrow ?: 0
+    }
+
     override fun sum(): Int {
         val first = this.firstThrow ?: 0
         val second = this.secondThrow ?: 0

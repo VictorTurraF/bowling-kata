@@ -4,7 +4,7 @@ class Player (
     private var name: String,
 ) {
     private var frames: List<Frame> = List(9) { NormalFrame() }
-    private var scores: List<Int> = List(9) { 0 }
+    private var scores: MutableList<Int> = MutableList(9) { 0 }
     private var currentFrameIndex: Int = 0
 
     fun getFrames(): List<Frame> {
@@ -21,7 +21,7 @@ class Player (
 
     fun roll(pins: Int, onFrameEnd: () -> Unit = {}) {
         this.currentFrame().roll(pins)
-//        this.computeScores()
+        this.computeScores()
 
         if (this.currentFrame().hasEnded()) {
             this.currentFrameIndex ++
@@ -30,7 +30,13 @@ class Player (
         }
     }
 
-//    private fun computeScores() {}
+    private fun computeScores() {
+        for ((i, frame) in this.frames.withIndex()) {
+            var score = this.scores.elementAtOrElse(i - 1) { 0 } + frame.sum()
+
+            this.scores[i] = score
+        }
+    }
 
     private fun currentFrame(): Frame {
         return this.frames[this.currentFrameIndex]
