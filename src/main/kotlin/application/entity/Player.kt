@@ -34,6 +34,10 @@ class Player (
         for ((i, frame) in this.frames.withIndex()) {
             var score = this.scores.elementAtOrElse(i - 1) { 0 } + frame.sum()
 
+            if (frame.isSpare()) {
+                score += this.frames.elementAtOrNull(i + 1)?.getFirstThrow() ?: 0
+            }
+
             this.scores[i] = score
         }
     }
