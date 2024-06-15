@@ -38,6 +38,10 @@ class Player (
                 score += this.frames.elementAtOrNull(i + 1)?.getFirstThrow() ?: 0
             }
 
+            if (frame.isStrike()) {
+                score += this.frames.elementAtOrNull(i + 1)?.sum() ?: 0
+            }
+
             this.scores[i] = score
         }
     }
