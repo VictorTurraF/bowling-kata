@@ -101,4 +101,58 @@ class PlayerTest {
         assertEquals(19, player.getScores()[1])
         assertEquals(7, player.getScores()[0])
     }
+
+    @Test
+    fun testScoreShouldComputeStrikeBonus() {
+        val player = Player("Victor")
+
+        player.roll(3)
+        player.roll(4) // First frame end // 7
+
+        player.roll(5)
+        player.roll(5) // spare // Second frame end // 27
+
+        player.roll(10) // strike // Third frame end // 43
+
+        player.roll(3)
+        player.roll(3) // Fourth frame end // 49
+
+        assertEquals(7, player.getScores()[0])
+        assertEquals(27, player.getScores()[1])
+        assertEquals(43, player.getScores()[2])
+        assertEquals(49, player.getScores()[3])
+    }
+
+    @Test
+    fun testSparesAndStrikesScore() {
+        val player = Player("Victor")
+
+        player.roll(1)
+        player.roll(4) // first frame end
+        player.roll(4)
+        player.roll(5) // second frame end
+        player.roll(6)
+        player.roll(4) // third frame end
+
+        assertEquals(24, player.getScores()[2])
+
+        player.roll(5)
+        player.roll(5) // fourth frame end
+
+        assertEquals(39, player.getScores()[3])
+
+        player.roll(10) // fifth frame end
+
+        assertEquals(59, player.getScores()[4])
+
+        player.roll(0)
+        player.roll(1)
+
+        assertEquals(5, player.getScores()[0])
+        assertEquals(14, player.getScores()[1])
+        assertEquals(29, player.getScores()[2])
+        assertEquals(49, player.getScores()[3])
+        assertEquals(60, player.getScores()[4])
+        assertEquals(61, player.getScores()[5])
+    }
 }
