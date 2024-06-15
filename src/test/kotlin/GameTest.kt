@@ -2,7 +2,6 @@ import org.example.application.entity.Game
 import org.example.application.entity.Player
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class GameTest {
 
