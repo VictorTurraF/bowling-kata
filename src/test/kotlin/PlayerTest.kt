@@ -77,4 +77,28 @@ class PlayerTest {
         assertEquals(5, player.getScores()[0])
         assertEquals(12, player.getScores()[1])
     }
+
+    @Test
+    fun testPlayersRollsShouldComputeSpareBonus() {
+        val player = Player("Victor")
+
+        player.roll(3)
+        player.roll(4) // First frame score should be 7
+        assertEquals(7, player.getScores()[0])
+
+        player.roll(5)
+        player.roll(5) // spare // Second Frame score should be 17 till here
+        assertEquals(17, player.getScores()[1])
+
+        player.roll(2) // Second frame score should be 12 at this point
+        assertEquals(19, player.getScores()[1])
+        assertEquals(21, player.getScores()[2])
+
+        player.roll(3) // Third frame score should be 24 at this point
+        assertEquals(24, player.getScores()[2])
+
+        // Checking others scores
+        assertEquals(19, player.getScores()[1])
+        assertEquals(7, player.getScores()[0])
+    }
 }
