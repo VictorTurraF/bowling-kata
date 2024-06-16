@@ -42,14 +42,15 @@ Com esse "core" será possível realizar as jogadas, somar os pontos de cada fra
 ### Sprint #1
 Plano de execução dividido em sprint e dias.
 
-- [x] Classe "Frame". Entidade. (1h)
-- [x] Classe "Player". Entidade. (15m)
-- [x] Classe "Game". Com o básico. Sem funcionalidades. (1h)
-- [x] Calculo de pontuação + funcionalidades (3h)
+Itens desta sprint:
+- Classe "Frame". Entidade. (1h)
+- Classe "Player". Entidade. (15m)
+- Classe "Game". Com o básico. Sem funcionalidades. (1h)
+- Calculo de pontuação + funcionalidades (3h)
 
 #### Sprint #1 Day #1 Monday 10th
-- [ ] Criar classe Frame
-- [ ] A soma dos frames deve ser menor ou igual a 10.
+- [x] Criar classe Frame
+- [x] A soma dos frames deve ser menor ou igual a 10.
 
 #### Sprint #1 Day #2 Tuesday 11th
 - [x] Criar classe Player
